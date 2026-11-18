@@ -2,7 +2,7 @@ extends Area2D
 
 var angle:=0.0
 var speed:=1000.0
-var type:="2"
+var type: TypeWrapper.Type = TypeWrapper.Type.WITCH
 var damage=0.2
 @onready var damageWave:=preload("res://scenes/Damage Wave.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -10,12 +10,13 @@ func _ready() -> void:
 	
 	match type:
 		
-		"1":
+		TypeWrapper.Type.KNIGHT:
 			modulate=Color(1,0,0)
-		"2":
+		TypeWrapper.Type.NUN:
 			modulate=Color(0,1,0)
-		"3":
+		TypeWrapper.Type.WITCH:
 			modulate=Color(0,0,1)
+			
 	await get_tree().create_timer(3).timeout
 	call_deferred("queue_free")
 
@@ -42,7 +43,7 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
-		if area.type==type:
+		if area.type == TypeWrapper.Type.NUN:
 			area.take_damage(damage)
 
 func explode():

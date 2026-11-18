@@ -2,11 +2,12 @@ extends Area2D
 
 var damage:=1
 var damageTimer:=0.1
-var type:="3"
+var type: TypeWrapper.Type = TypeWrapper.Type.WITCH
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	scale=Vector2.ZERO
+	pass
+	#scale=Vector2.ZERO
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,4 +19,5 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
-		area.take_damage(damage)
+		if area.type == TypeWrapper.Type.NUN:
+			area.take_damage(damage)

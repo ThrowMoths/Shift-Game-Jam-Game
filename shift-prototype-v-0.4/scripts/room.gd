@@ -6,13 +6,18 @@ var closed:=false
 var roomEntered=false
 @onready var testObject:=preload("res://scenes/testObject.tscn")
 @onready var secondTestObject:=preload("res://scenes/secondTestObject.tscn")
-@onready var testEnemy:=preload("res://scenes/Test Enemy.tscn")
+
+@onready var knightAttacker := preload("res://scenes/enemies/KnightAttackerEnemy.tscn")
+@onready var nunAttacker := preload("res://scenes/enemies/NunAttackerEnemy.tscn")
+@onready var witchAttacker := preload("res://scenes/enemies/WitchAttackerEnemy.tscn")
+
+
 var roomEnemies:=[]
 var currEnemies:=[]
 var enemiesLeft:=0
 var normalRooms:=[
-	[{ "Type": "Test Enemy", "Position": Vector2(-479.0, -32.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test", "Position": Vector2(-139.0, 92.0) }, { "Type": "Test", "Position": Vector2(112.0, -78.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
-	,[{ "Type": "Test Enemy", "Position": Vector2(-115.0, 78.0) }, { "Type": "Test Enemy", "Position": Vector2(100.0, 90.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, -414.0) }, { "Type": "Test Enemy", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, -87.0) }]
+	[{ "Type": "Knight Attacker", "Position": Vector2(-479.0, -32.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test", "Position": Vector2(-139.0, 92.0) }, { "Type": "Test", "Position": Vector2(112.0, -78.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
+	,[{ "Type": "Knight Attacker", "Position": Vector2(-115.0, 78.0) }, { "Type": "Knight Attacker", "Position": Vector2(100.0, 90.0) }, { "Type": "Nun Attacker", "Position": Vector2(915.0, -414.0) }, { "Type": "Witch Attacker", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, -87.0) }]
 	,[{ "Type": "Test Enemy", "Position": Vector2(-154.0, -439.0) }, { "Type": "Test Enemy", "Position": Vector2(362.0, 345.0) }, { "Type": "Test Enemy", "Position": Vector2(-479.0, -32.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
 	,[{ "Type": "Test Enemy", "Position": Vector2(-886.0, 420.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, 420.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, -414.0) }, { "Type": "Test Enemy", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
 ]
@@ -43,9 +48,14 @@ func generate_room(possibleRooms:Array):
 				newObject=testObject.instantiate()
 			"Test2":
 				newObject=secondTestObject.instantiate()
-			"Test Enemy":
-				
-				roomEnemies.append({"Enemy":testEnemy,"Position":object["Position"]})
+			"Test Enemy":	
+				roomEnemies.append({"Enemy":knightAttacker,"Position":object["Position"]})
+			"Knight Attacker":	
+				roomEnemies.append({"Enemy":knightAttacker,"Position":object["Position"]})
+			"Nun Attacker":	
+				roomEnemies.append({"Enemy":nunAttacker,"Position":object["Position"]})
+			"Witch Attacker":	
+				roomEnemies.append({"Enemy":witchAttacker,"Position":object["Position"]})
 		if newObject:
 			add_child(newObject)
 			newObject.position=object["Position"]

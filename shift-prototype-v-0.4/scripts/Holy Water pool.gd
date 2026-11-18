@@ -2,7 +2,7 @@ extends Area2D
 
 var damage:=0.3
 var damageTimer:=0.1
-var type:="2"
+var type: TypeWrapper.Type = TypeWrapper.Type.NUN
 var enteredEnemies:=[]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	if damageTimer<=0:
 		damageTimer=0.1
 		for i in enteredEnemies:
-			if i.type==type:
+			if i.type== TypeWrapper.Type.KNIGHT:
 				i.take_damage(damage)
 	modulate.a-=delta*0.5
 	if modulate.a<=0:

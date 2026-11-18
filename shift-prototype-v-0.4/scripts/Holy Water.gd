@@ -2,7 +2,7 @@ extends Area2D
 
 var angle:=0.0
 var speed:=1500.0
-var type:="2"
+var type: TypeWrapper.Type = TypeWrapper.Type.NUN
 var damage=3
 @onready var holyPool:=preload("res://scenes/Holy Water Pool.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
-		if area.type==type:
+		if area.type == TypeWrapper.Type.KNIGHT:
 			area.take_damage(damage)
 		break_flask()
 func break_flask():

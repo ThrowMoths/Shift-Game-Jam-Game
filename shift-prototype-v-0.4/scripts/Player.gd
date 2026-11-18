@@ -14,6 +14,8 @@ var dashSpeed:=2000.0
 var invincibility:=1.0
 var abilityCooldown:=0.0
 var buffed:=false
+var knockbackVelocity: Vector2 = Vector2.ZERO
+@export var knockbackMulti: float = 1.0
 
 @onready var testAttack:=preload("res://scenes/Player Attack.tscn")
 @onready var waterAttack:=preload("res://scenes/Holy Water Bottle.tscn")
@@ -32,9 +34,12 @@ func _physics_process(delta: float) -> void:
 		
 	else:
 		velocity *=0
+	
+	velocity += knockbackVelocity
+	knockbackVelocity = knockbackVelocity.move_toward(Vector2(0,0), 3500*delta)
+		
 	if dashing:
 		velocity=dashSpeed*dashDirection
-	
 	
 	
 	move_and_slide()
@@ -110,15 +115,16 @@ func attack():
 			newAttack.position=position
 
 func take_damage(damage):
-	
 	if invincibility<=0:
 		health-=damage*(1-0.5*int(buffed))
+		invincibility=1.0
+		
 	if health<=0:
 		if get_tree():
 			get_tree().reload_current_scene()
 	else:
 		get_tree().current_scene.damage_taken()
-	invincibility=1.0
+	
 func ability():
 	match shiftMode:
 		"1":
@@ -135,3 +141,6 @@ func ability():
 		"3":
 			abilityCooldown=2.0
 			get_tree().call_group("Wizard Attack","explode")
+
+func take_knockback(vector: Vector2) -> void:
+	knockbackVelocity = vector * knockbackMulti
