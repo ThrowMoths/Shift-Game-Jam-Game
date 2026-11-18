@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://c0cxf8f8na1bj"]
+
+[ext_resource type="Script" uid="uid://b1ejxy0uciarh" path="res://scripts/Room Tester.gd" id="1_4b71m"]
+[ext_resource type="PackedScene" uid="uid://bak16hvv6csr1" path="res://scenes/Test Enemy.tscn" id="2_gjw5q"]
+[ext_resource type="PackedScene" uid="uid://4t5nh5yopoi7" path="res://scenes/secondTestObject.tscn" id="3_fsem7"]
+[ext_resource type="PackedScene" uid="uid://bidyqby88gewh" path="res://scenes/Soft Collider.tscn" id="4_nlh31"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdob8"]
+size = Vector2(1480, 199)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37cpf"]
+size = Vector2(1252, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q1m5"]
+size = Vector2(81, 499)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emyof"]
+size = Vector2(634, 77)
+
+[node name="Node2D" type="Node2D" unique_id=472490092]
+script = ExtResource("1_4b71m")
+
+[node name="Objects" type="Node2D" parent="." unique_id=1942275806]
+
+[node name="Area2D6" parent="Objects" unique_id=855191822 instance=ExtResource("2_gjw5q")]
+position = Vector2(-115, 78)
+
+[node name="Area2D7" parent="Objects" unique_id=1279050439 instance=ExtResource("2_gjw5q")]
+position = Vector2(100, 90)
+
+[node name="Area2D8" parent="Objects" unique_id=1640955292 instance=ExtResource("2_gjw5q")]
+position = Vector2(915, -414)
+
+[node name="Area2D9" parent="Objects" unique_id=2019917049 instance=ExtResource("2_gjw5q")]
+position = Vector2(-886, -414)
+
+[node name="testObject" parent="Objects" unique_id=93522359 instance=ExtResource("3_fsem7")]
+position = Vector2(-134, -84)
+
+[node name="testObject4" parent="Objects" unique_id=652403132 instance=ExtResource("3_fsem7")]
+position = Vector2(112, -87)
+
+[node name="Area2D" parent="." unique_id=805338177 instance=ExtResource("4_nlh31")]
+position = Vector2(0, -648)
+
+[node name="CollisionShape2D" parent="Area2D" index="0" unique_id=752860889]
+position = Vector2(-5.5, -0.5)
+shape = SubResource("RectangleShape2D_gdob8")
+
+[node name="Area2D2" parent="." unique_id=1556625048 instance=ExtResource("4_nlh31")]
+position = Vector2(0, 659)
+
+[node name="CollisionShape2D" parent="Area2D2" index="0" unique_id=752860889]
+position = Vector2(-5.5, -0.5)
+shape = SubResource("RectangleShape2D_gdob8")
+
+[node name="Area2D3" parent="." unique_id=417326231 instance=ExtResource("4_nlh31")]
+position = Vector2(0, 659)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" parent="Area2D3" index="0" unique_id=752860889]
+position = Vector2(-660.99994, 1148)
+shape = SubResource("RectangleShape2D_gdob8")
+
+[node name="Area2D4" parent="." unique_id=1721436806 instance=ExtResource("4_nlh31")]
+position = Vector2(2296, 659)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" parent="Area2D4" index="0" unique_id=752860889]
+position = Vector2(-660.99994, 1148)
+shape = SubResource("RectangleShape2D_gdob8")
+
+[node name="Part Right" type="Node2D" parent="." unique_id=1181044851]
+
+[node name="Part Right 1" type="StaticBody2D" parent="Part Right" unique_id=1423748548]
+position = Vector2(1152, 495.00003)
+rotation = 1.5707964
+scale = Vector2(0.4, 2)
+
+[node name="Polygon2D" type="Polygon2D" parent="Part Right/Part Right 1" unique_id=2026996219]
+polygon = PackedVector2Array(626, -50, 626, 50, -626, 50, -626, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Right/Part Right 1" unique_id=456161415]
+shape = SubResource("RectangleShape2D_37cpf")
+
+[node name="Part Right 2" type="StaticBody2D" parent="Part Right" unique_id=389593588]
+position = Vector2(1152, -495)
+rotation = 1.5707964
+scale = Vector2(0.4, 2)
+
+[node name="Polygon2D" type="Polygon2D" parent="Part Right/Part Right 2" unique_id=1785886040]
+polygon = PackedVector2Array(626, -50, 626, 50, -626, 50, -626, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Right/Part Right 2" unique_id=2035118111]
+shape = SubResource("RectangleShape2D_37cpf")
+
+[node name="Right Trigger" type="Area2D" parent="Part Right" unique_id=1380009836]
+position = Vector2(1151, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Right/Right Trigger" unique_id=1926853824]
+position = Vector2(-60, 3)
+shape = SubResource("RectangleShape2D_2q1m5")
+
+[node name="Part Left" type="Node2D" parent="." unique_id=1756535400]
+
+[node name="Part Left 1" type="StaticBody2D" parent="Part Left" unique_id=1147516727]
+position = Vector2(-1152, 495)
+rotation = 1.5707964
+scale = Vector2(0.4, 2)
+
+[node name="Polygon2D" type="Polygon2D" parent="Part Left/Part Left 1" unique_id=1233974898]
+polygon = PackedVector2Array(626, -50, 626, 50, -626, 50, -626, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Left/Part Left 1" unique_id=1304942745]
+shape = SubResource("RectangleShape2D_37cpf")
+
+[node name="Part Left 2" type="StaticBody2D" parent="Part Left" unique_id=475928063]
+position = Vector2(-1152, -495)
+rotation = 1.5707964
+scale = Vector2(0.4, 2)
+
+[node name="Polygon2D" type="Polygon2D" parent="Part Left/Part Left 2" unique_id=1028248194]
+polygon = PackedVector2Array(626, -50, 626, 50, -626, 50, -626, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Left/Part Left 2" unique_id=348129207]
+shape = SubResource("RectangleShape2D_37cpf")
+
+[node name="Left Trigger" type="Area2D" parent="Part Left" unique_id=1177167472]
+position = Vector2(-1151, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Left/Left Trigger" unique_id=1587162448]
+position = Vector2(58.5, 3.5)
+shape = SubResource("RectangleShape2D_2q1m5")
+
+[node name="Part Down" type="Node2D" parent="." unique_id=1182406652]
+
+[node name="Part Left 1" type="StaticBody2D" parent="Part Down" unique_id=976738869]
+position = Vector2(-783.00006, 648)
+rotation = 3.1415927
+scale = Vector2(0.75, 2)
+
+[node name="Polygon2D" type="Polygon2D" parent="Part Down/Part Left 1" unique_id=1590013888]
+polygon = PackedVector2Array(626, -50, 626, 50, -626, 50, -626, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Down/Part Left 1" unique_id=1387621265]
+shape = SubResource("RectangleShape2D_37cpf")
+
+[node name="Part Left 2" type="StaticBody2D" parent="Part Down" unique_id=1755320508]
+position = Vector2(783, 648)
+rotation = 3.1415927
+scale = Vector2(0.75, 2)
+
+[node name="Polygon2D" type="Polygon2D" parent="Part Down/Part Left 2" unique_id=1171171865]
+polygon = PackedVector2Array(626, -50, 626, 50, -626, 50, -626, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Down/Part Left 2" unique_id=24849788]
+shape = SubResource("RectangleShape2D_37cpf")
+
+[node name="Down Trigger" type="Area2D" parent="Part Down" unique_id=1055523197]
+position = Vector2(0, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Down/Down Trigger" unique_id=628158835]
+position = Vector2(1, -61)
+shape = SubResource("RectangleShape2D_emyof")
+
+[node name="Part Up" type="Node2D" parent="." unique_id=289491430]
+
+[node name="Part Left 1" type="StaticBody2D" parent="Part Up" unique_id=1092051865]
+position = Vector2(-783, -648)
+rotation = 3.1415927
+scale = Vector2(0.75, 2)
+
+[node name="Polygon2D" type="Polygon2D" parent="Part Up/Part Left 1" unique_id=1848795897]
+polygon = PackedVector2Array(626, -50, 626, 50, -626, 50, -626, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Up/Part Left 1" unique_id=1029216103]
+shape = SubResource("RectangleShape2D_37cpf")
+
+[node name="Part Left 2" type="StaticBody2D" parent="Part Up" unique_id=1101306029]
+position = Vector2(783, -648)
+rotation = 3.1415927
+scale = Vector2(0.75, 2)
+
+[node name="Polygon2D" type="Polygon2D" parent="Part Up/Part Left 2" unique_id=149240775]
+polygon = PackedVector2Array(626, -50, 626, 50, -626, 50, -626, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Up/Part Left 2" unique_id=1585568339]
+shape = SubResource("RectangleShape2D_37cpf")
+
+[node name="Up Trigger" type="Area2D" parent="Part Up" unique_id=1035377189]
+position = Vector2(0, -648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part Up/Up Trigger" unique_id=1429877668]
+position = Vector2(1, 61)
+shape = SubResource("RectangleShape2D_emyof")
+
+[editable path="Objects/Area2D6"]
+[editable path="Objects/Area2D6/SoftCollider"]
+[editable path="Objects/Area2D7"]
+[editable path="Objects/Area2D7/SoftCollider"]
+[editable path="Objects/Area2D8"]
+[editable path="Objects/Area2D8/SoftCollider"]
+[editable path="Objects/Area2D9"]
+[editable path="Objects/Area2D9/SoftCollider"]
+[editable path="Area2D"]
+[editable path="Area2D2"]
+[editable path="Area2D3"]
+[editable path="Area2D4"]

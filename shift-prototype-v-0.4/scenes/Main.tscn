@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://cdtd51xjfb2gi"]
+
+[ext_resource type="Script" uid="uid://1fhmt4urhixe" path="res://scripts/main.gd" id="1_r0du0"]
+[ext_resource type="Script" uid="uid://bkwlukd8ncs61" path="res://scripts/Player.gd" id="1_uu6xs"]
+[ext_resource type="Script" uid="uid://j6fikaqb6ica" path="res://scripts/polygon_2d.gd" id="2_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://dx2fcvyaaxdnu" path="res://assets/icon.svg" id="2_r0du0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47ip8"]
+size = Vector2(127, 127)
+
+[node name="Node2D" type="Node2D" unique_id=1415313415]
+script = ExtResource("1_r0du0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=853052192]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D" unique_id=851945814]
+z_index = 10
+position = Vector2(864, -348)
+scale = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 0.73333335)
+polygon = PackedVector2Array(-500, -500, 500, -500, 500, 500, -500, 500)
+script = ExtResource("2_cm0pq")
+
+[node name="Node2D" type="Node2D" parent="Camera2D/Polygon2D" unique_id=36050713]
+position = Vector2(0, -420)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D" unique_id=1943836083]
+position = Vector2(-420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D" unique_id=85957176]
+position = Vector2(-280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D" unique_id=550436563]
+position = Vector2(-140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D" unique_id=1159853028]
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D" unique_id=376951823]
+position = Vector2(140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D" unique_id=850719211]
+position = Vector2(280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D" unique_id=1258891118]
+position = Vector2(420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Node2D2" type="Node2D" parent="Camera2D/Polygon2D" unique_id=1322242288]
+position = Vector2(0, -280)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D2" unique_id=1900127606]
+position = Vector2(-420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D2" unique_id=751341222]
+position = Vector2(-280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D2" unique_id=543335204]
+position = Vector2(-140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D2" unique_id=635196816]
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D2" unique_id=1595607075]
+position = Vector2(140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D2" unique_id=1479850815]
+position = Vector2(280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D2" unique_id=1999969013]
+position = Vector2(420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Node2D3" type="Node2D" parent="Camera2D/Polygon2D" unique_id=1666119306]
+position = Vector2(0, -140)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D3" unique_id=499430912]
+position = Vector2(-420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D3" unique_id=1173589493]
+position = Vector2(-280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D3" unique_id=1867204450]
+position = Vector2(-140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D3" unique_id=1272486821]
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D3" unique_id=44798616]
+position = Vector2(140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D3" unique_id=81414780]
+position = Vector2(280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D3" unique_id=8722395]
+position = Vector2(420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Node2D4" type="Node2D" parent="Camera2D/Polygon2D" unique_id=1207158622]
+
+[node name="Polygon2D4" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D4" unique_id=900642648]
+position = Vector2(-420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D4" unique_id=1165583836]
+position = Vector2(-280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D4" unique_id=126934073]
+position = Vector2(-140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D4" unique_id=241327737]
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D4" unique_id=678784123]
+position = Vector2(140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D4" unique_id=1540416706]
+position = Vector2(280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D4" unique_id=379661444]
+position = Vector2(420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Node2D5" type="Node2D" parent="Camera2D/Polygon2D" unique_id=2046026615]
+position = Vector2(0, 140)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D5" unique_id=1528877957]
+position = Vector2(-420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D5" unique_id=1117954864]
+position = Vector2(-280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D5" unique_id=354258338]
+position = Vector2(-140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D5" unique_id=589031521]
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D5" unique_id=1174627796]
+position = Vector2(140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D5" unique_id=713215200]
+position = Vector2(280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D5" unique_id=2031902574]
+position = Vector2(420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Node2D6" type="Node2D" parent="Camera2D/Polygon2D" unique_id=2052302601]
+position = Vector2(0, 280)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D6" unique_id=1054887826]
+position = Vector2(-420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D6" unique_id=818372689]
+position = Vector2(-280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D6" unique_id=1378013785]
+position = Vector2(-140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D6" unique_id=55075951]
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D6" unique_id=502121294]
+position = Vector2(140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D6" unique_id=1292238543]
+position = Vector2(280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D6" unique_id=1239184136]
+position = Vector2(420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Node2D7" type="Node2D" parent="Camera2D/Polygon2D" unique_id=213554208]
+position = Vector2(0, 420)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D7" unique_id=773803679]
+position = Vector2(-420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D7" unique_id=1224687541]
+position = Vector2(-280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D7" unique_id=1611581062]
+position = Vector2(-140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D7" unique_id=1873480626]
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D7" unique_id=962588846]
+position = Vector2(140, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D7" unique_id=1573698356]
+position = Vector2(280, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Camera2D/Polygon2D/Node2D7" unique_id=1137247699]
+position = Vector2(420, 0)
+polygon = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Polygon2D" unique_id=1959935825]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_r0du0")
+
+[node name="Node2D" type="Node2D" parent="Camera2D" unique_id=1524021120]
+z_index = 100
+position = Vector2(-730, -546)
+scale = Vector2(0.64, 0.64)
+
+[node name="Health BG" type="Line2D" parent="Camera2D/Node2D" unique_id=987935630]
+points = PackedVector2Array(-500, 0, 500, 0)
+width = 150.0
+default_color = Color(0.1309, 0.15110166, 0.17, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Health Lerp" type="Line2D" parent="Camera2D/Node2D" unique_id=548296643]
+points = PackedVector2Array(-500, 0, 500, 0)
+width = 110.0
+default_color = Color(0.9961409, 0.8127535, 0.83492005, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Health" type="Line2D" parent="Camera2D/Node2D" unique_id=596420776]
+points = PackedVector2Array(-500, 0, 500, 0)
+width = 110.0
+default_color = Color(0.9584375, 0.23444125, 0.43411246, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=849196446 groups=["Player"]]
+script = ExtResource("1_uu6xs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1755036785]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_47ip8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1216194512]
+position = Vector2(0, 0.5)
+scale = Vector2(1, 0.9921875)
+texture = ExtResource("2_r0du0")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cxbtx03r2y7r0"]
+
+[ext_resource type="Script" uid="uid://beh0o14agglw4" path="res://scripts/Melee.gd" id="1_lerku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47ip8"]
+size = Vector2(72, 204)
+
+[node name="Area2D" type="Area2D" unique_id=432130452]
+script = ExtResource("1_lerku")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1105693569]
+position = Vector2(178, 0)
+scale = Vector2(2, 2)
+color = Color(1, 0.74, 0.74, 1)
+polygon = PackedVector2Array(-19, -69, 0, 0, -22, 66, 23, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2114728051]
+position = Vector2(186, -7)
+shape = SubResource("RectangleShape2D_47ip8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

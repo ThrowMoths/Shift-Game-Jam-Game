@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ddej01h1t82dg"]
+
+[ext_resource type="Script" uid="uid://bx8bbeanmn54n" path="res://scripts/damage_wave.gd" id="1_kncoh"]
+[ext_resource type="Texture2D" uid="uid://d3rnti5d1ibxk" path="res://assets/Sprite-0001.png" id="2_eev5j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5oiag"]
+radius = 100.0
+
+[node name="Area2D" type="Area2D" unique_id=162794801]
+script = ExtResource("1_kncoh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=784335408]
+shape = SubResource("CircleShape2D_5oiag")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2059287553]
+scale = Vector2(3, 3)
+texture = ExtResource("2_eev5j")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

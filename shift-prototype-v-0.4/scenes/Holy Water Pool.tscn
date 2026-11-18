@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://brqmss0cigfux"]
+
+[ext_resource type="Script" uid="uid://cbgilriw4hf7x" path="res://scripts/Holy Water pool.gd" id="1_o87jc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5oiag"]
+radius = 247.24481
+
+[node name="Area2D" type="Area2D" unique_id=1407919831]
+script = ExtResource("1_o87jc")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=725549549]
+z_index = -1
+points = PackedVector2Array(0, 0, 0.1, 0)
+closed = true
+width = 500.0
+default_color = Color(0.6, 0.74666667, 1, 0.59607846)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427503835]
+z_index = -1
+shape = SubResource("CircleShape2D_5oiag")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

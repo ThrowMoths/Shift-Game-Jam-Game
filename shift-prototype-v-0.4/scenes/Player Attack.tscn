@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://1oy1w1rum211"]
+
+[ext_resource type="Script" uid="uid://b7n6xw8nj7og5" path="res://scripts/Player Attack.gd" id="1_wp6yr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oiag"]
+size = Vector2(54, 43)
+
+[node name="Area2D" type="Area2D" unique_id=1959050918 groups=["Wizard Attack"]]
+script = ExtResource("1_wp6yr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=448078122]
+
+[node name="Polygon2D" type="Polygon2D" parent="Sprite2D" unique_id=1644215703]
+polygon = PackedVector2Array(-24, -27, 44, 1, -23, 22, 0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94521382]
+position = Vector2(17, -0.5)
+shape = SubResource("RectangleShape2D_5oiag")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

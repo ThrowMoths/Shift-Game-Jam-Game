@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b67s7aqcps72g"]
+
+[ext_resource type="Script" uid="uid://bgls4gmk8x8ee" path="res://scripts/Block Wave.gd" id="1_2wby2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5oiag"]
+radius = 100.0
+
+[node name="Area2D" type="Area2D" unique_id=162794801]
+script = ExtResource("1_2wby2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=784335408]
+shape = SubResource("CircleShape2D_5oiag")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1588893385]
+points = PackedVector2Array(0, 0, 0.1, 0)
+width = 200.0
+default_color = Color(1, 0.57, 0.57, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

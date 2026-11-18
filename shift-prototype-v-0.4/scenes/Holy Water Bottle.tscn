@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cjdbsutgpapyk"]
+
+[ext_resource type="Script" uid="uid://ctwphjww1if8a" path="res://scripts/Holy Water.gd" id="1_s6swk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oiag"]
+size = Vector2(54, 43)
+
+[node name="Area2D" type="Area2D" unique_id=1959050918]
+script = ExtResource("1_s6swk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=448078122]
+
+[node name="Polygon2D" type="Polygon2D" parent="Sprite2D" unique_id=1644215703]
+polygon = PackedVector2Array(-24, -27, 44, 1, -23, 22, 0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94521382]
+position = Vector2(17, -0.5)
+shape = SubResource("RectangleShape2D_5oiag")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
