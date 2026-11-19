@@ -1,0 +1,25 @@
+Unholy:
+Hellhound - Melee
+Zombie - Projectile
+Vampire - Spellcaster
+
+Monsters:
+Dark Knight - Melee
+Skeleton - Projectile
+Baby Dragon - Spellcaster
+
+Spirits:
+Warrior Spirit - Melee
+Elemental Creatures - Projectile
+Wizard Apprentice - Spellcaster
+
+
+Bi-elementals
+Shadow Creature - Melee & Spellcaster
+Mothman - Spellcaster & Projectiles
+Blade Master - Melee & Projectiles
+
+Dark Wizard Himself
+
+
+A potion can be used to upgrade all characters, but the characters get upgraded randomly
