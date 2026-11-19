@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 	if attackReady:
 		get_parent().modulate = Color(0, 0, 0)
 		var newAttack := meleeAttack.instantiate()
-		newAttack.rotation = get_angle_to(player.position)
+		newAttack.rotation = self.get_angle_to(player.position)
 		newAttack.damage = attackDamage
 		get_tree().current_scene.add_child(newAttack)
 		newAttack.position = get_parent().position

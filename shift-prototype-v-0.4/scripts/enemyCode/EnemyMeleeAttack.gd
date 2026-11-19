@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage: float = 20.0
+var damage: float
 var active: bool = true
 
 func _ready() -> void:

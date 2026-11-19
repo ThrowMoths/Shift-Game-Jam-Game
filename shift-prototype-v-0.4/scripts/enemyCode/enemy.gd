@@ -1,8 +1,8 @@
 extends Area2D
 
 # Health variables, self explanatory
-var health: float = 10.0
-var maxHealth: float = 10.0
+var health: float
+@export var maxHealth: float
 
 # Enemy type instance
 @export var type: TypeWrapper.Type
@@ -34,6 +34,9 @@ var softCollVelocity:Vector2=Vector2.ZERO
 # Makes sure death calls arent done twice for an enemy
 var deathEmitted: bool = false
 
+func _ready() -> void:
+	health = maxHealth
+	
 func _physics_process(delta: float) -> void:
 	# Uses a boolean for the invincibility calculations
 	if invincibilityFlag:
@@ -110,12 +113,11 @@ func take_knockback(vector: Vector2) -> void:
 # Deals contact damage to the player if not invincible 
 func contact(body: Node2D) -> void:
 	# Enemies are knocked back after contacting the player
-	take_knockback(moveVelocity.normalized() * -1500)
+	take_knockback(Vector2(1,0).rotated(self.get_angle_to(player.position)).normalized() * -1500)
 	
 	if !invincibilityFlag:
 		if body.dashing == false:
-			pass
-			#player.take_damage(contactDamage)
+			player.take_damage(contactDamage)
 		else:
 			if type == TypeWrapper.Type.KNIGHT:
 				take_damage(body.dashDamage)
