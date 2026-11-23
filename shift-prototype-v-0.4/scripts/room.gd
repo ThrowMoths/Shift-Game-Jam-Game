@@ -7,23 +7,23 @@ var roomEntered=false
 @onready var testObject:=preload("res://scenes/testObject.tscn")
 @onready var secondTestObject:=preload("res://scenes/secondTestObject.tscn")
 
-@onready var knightAttacker := preload("res://scenes/enemies/KnightAttackerEnemy.tscn")
-@onready var nunAttacker := preload("res://scenes/enemies/NunAttackerEnemy.tscn")
-@onready var witchAttacker := preload("res://scenes/enemies/WitchAttackerEnemy.tscn")
+@onready var darkKnight := preload("res://scenes/enemies/darkKnight.tscn")
+@onready var hellhound := preload("res://scenes/enemies/hellhound.tscn")
+@onready var warriorSpirit := preload("res://scenes/enemies/warriorSpirit.tscn")
 
-@onready var knightThrower := preload("res://scenes/enemies/KnightThrowerEnemy.tscn")
-@onready var nunThrower := preload("res://scenes/enemies/NunThrowerEnemy.tscn")
-@onready var witchThrower := preload("res://scenes/enemies/WitchThrowerEnemy.tscn")
+@onready var skeleton := preload("res://scenes/enemies/skeleton.tscn")
+@onready var zombie := preload("res://scenes/enemies/zombie.tscn")
+@onready var elementalCreature := preload("res://scenes/enemies/elementalCreature.tscn")
 
-@onready var knightSpellcaster := preload("res://scenes/enemies/KnightSpellcasterEnemy.tscn")
-@onready var nunSpellcaster := preload("res://scenes/enemies/NunSpellcasterEnemy.tscn")
-@onready var witchSpellcaster := preload("res://scenes/enemies/WitchSpellcasterEnemy.tscn")
+@onready var babyDragon := preload("res://scenes/enemies/babyDragon.tscn")
+@onready var vampire := preload("res://scenes/enemies/vampire.tscn")
+@onready var wizardApprentice := preload("res://scenes/enemies/wizardApprentice.tscn")
 
 var roomEnemies:=[]
 var currEnemies:=[]
 var enemiesLeft:=0
 var normalRooms:=[
-	[{ "Type": "Knight Spellcaster", "Position": Vector2(-479.0, -32.0) },{ "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test", "Position": Vector2(-139.0, 92.0) }, { "Type": "Test", "Position": Vector2(112.0, -78.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }] ]
+	[{ "Type": "Dark Knight", "Position": Vector2(-479.0, -32.0) },{ "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test", "Position": Vector2(-139.0, 92.0) }, { "Type": "Test", "Position": Vector2(112.0, -78.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }] ]
 	#,[{ "Type": "Knight Attacker", "Position": Vector2(-115.0, 78.0) }, { "Type": "Knight Attacker", "Position": Vector2(100.0, 90.0) }, { "Type": "Nun Attacker", "Position": Vector2(915.0, -414.0) }, { "Type": "Witch Attacker", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, -87.0) }]
 	#,[{ "Type": "Test Enemy", "Position": Vector2(-154.0, -439.0) }, { "Type": "Test Enemy", "Position": Vector2(362.0, 345.0) }, { "Type": "Test Enemy", "Position": Vector2(-479.0, -32.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
 	#,[{ "Type": "Test Enemy", "Position": Vector2(-886.0, 420.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, 420.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, -414.0) }, { "Type": "Test Enemy", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
@@ -56,25 +56,25 @@ func generate_room(possibleRooms:Array):
 			"Test2":
 				newObject=secondTestObject.instantiate()
 			"Test Enemy":	
-				roomEnemies.append({"Enemy":knightAttacker,"Position":object["Position"]})
-			"Knight Attacker":	
-				roomEnemies.append({"Enemy":knightAttacker,"Position":object["Position"]})
-			"Nun Attacker":	
-				roomEnemies.append({"Enemy":nunAttacker,"Position":object["Position"]})
-			"Witch Attacker":	
-				roomEnemies.append({"Enemy":witchAttacker,"Position":object["Position"]})
-			"Knight Thrower":
-				roomEnemies.append({"Enemy":knightThrower,"Position":object["Position"]})
-			"Nun Thrower":
-				roomEnemies.append({"Enemy":nunThrower,"Position":object["Position"]})
-			"Witch Thrower":
-				roomEnemies.append({"Enemy":witchThrower,"Position":object["Position"]})
-			"Knight Spellcaster":
-				roomEnemies.append({"Enemy":knightSpellcaster,"Position":object["Position"]})
-			"Nun Spellcaster":
-				roomEnemies.append({"Enemy":nunSpellcaster,"Position":object["Position"]})
-			"Witch Spellcaster":
-				roomEnemies.append({"Enemy":witchSpellcaster,"Position":object["Position"]})
+				roomEnemies.append({"Enemy":darkKnight,"Position":object["Position"]})
+			"Dark Knight":	
+				roomEnemies.append({"Enemy":darkKnight,"Position":object["Position"]})
+			"Hellhound":	
+				roomEnemies.append({"Enemy":hellhound,"Position":object["Position"]})
+			"Warrior Spirit":	
+				roomEnemies.append({"Enemy":warriorSpirit,"Position":object["Position"]})
+			"Skeleton":
+				roomEnemies.append({"Enemy":skeleton,"Position":object["Position"]})
+			"Zombie":
+				roomEnemies.append({"Enemy":zombie,"Position":object["Position"]})
+			"Elemental Creature":
+				roomEnemies.append({"Enemy":elementalCreature,"Position":object["Position"]})
+			"Baby Dragon":
+				roomEnemies.append({"Enemy":babyDragon,"Position":object["Position"]})
+			"Vampire":
+				roomEnemies.append({"Enemy":vampire,"Position":object["Position"]})
+			"Wizard Apprentice":
+				roomEnemies.append({"Enemy":wizardApprentice,"Position":object["Position"]})
 				
 		if newObject:
 			add_child(newObject)

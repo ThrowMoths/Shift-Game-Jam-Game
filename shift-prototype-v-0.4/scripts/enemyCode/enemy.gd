@@ -5,7 +5,7 @@ var health: float
 @export var maxHealth: float
 
 # Enemy type instance
-@export var type: TypeWrapper.Type
+@export var type: EnemyTypeWrapper.Type
 
 # Contact damage variable
 @export var contactDamage: float = 5.0
@@ -119,5 +119,5 @@ func contact(body: Node2D) -> void:
 		if body.dashing == false:
 			player.take_damage(contactDamage)
 		else:
-			if type == TypeWrapper.Type.KNIGHT:
+			if type == EnemyTypeWrapper.Type.MONSTER:
 				take_damage(body.dashDamage)

@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c0cxf8f8na1bj"]
 
 [ext_resource type="Script" uid="uid://b1ejxy0uciarh" path="res://scripts/Room Tester.gd" id="1_4b71m"]
-[ext_resource type="PackedScene" uid="uid://bak16hvv6csr1" path="res://scenes/enemies/KnightAttackerEnemy.tscn" id="2_gjw5q"]
+[ext_resource type="PackedScene" uid="uid://bak16hvv6csr1" path="res://scenes/enemies/darkKnight.tscn" id="2_gjw5q"]
 [ext_resource type="PackedScene" uid="uid://4t5nh5yopoi7" path="res://scenes/secondTestObject.tscn" id="3_fsem7"]
 [ext_resource type="PackedScene" uid="uid://bidyqby88gewh" path="res://scenes/Soft Collider.tscn" id="4_nlh31"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdob8"]
 size = Vector2(1480, 199)

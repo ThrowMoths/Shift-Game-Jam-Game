@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
-		if area.type == TypeWrapper.Type.KNIGHT:
+		if area.type == EnemyTypeWrapper.Type.UNHOLY:
 			area.take_damage(damage)
 		break_flask()
 func break_flask():

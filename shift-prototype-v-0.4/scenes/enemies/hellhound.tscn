@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://bak16hvv6csr1"]
+[gd_scene format=3 uid="uid://bxlp5vr76xebh"]
 
-[ext_resource type="Script" uid="uid://c3i1857j6v0fy" path="res://scripts/enemyCode/enemy.gd" id="1_j5k0o"]
-[ext_resource type="Texture2D" uid="uid://dx2fcvyaaxdnu" path="res://assets/icon.svg" id="2_k2r0x"]
-[ext_resource type="Script" uid="uid://bcrmgx6f0b2kh" path="res://scripts/enemyCode/attackerBehaviour.gd" id="3_e27fr"]
-[ext_resource type="PackedScene" uid="uid://bidyqby88gewh" path="res://scenes/Soft Collider.tscn" id="4_eu4ig"]
+[ext_resource type="Script" uid="uid://c3i1857j6v0fy" path="res://scripts/enemyCode/enemy.gd" id="1_jdssq"]
+[ext_resource type="Texture2D" uid="uid://dx2fcvyaaxdnu" path="res://assets/icon.svg" id="2_jh1yy"]
+[ext_resource type="Script" uid="uid://bcrmgx6f0b2kh" path="res://scripts/enemyCode/attackerBehaviour.gd" id="3_of7c4"]
+[ext_resource type="PackedScene" uid="uid://bidyqby88gewh" path="res://scenes/Soft Collider.tscn" id="4_5n868"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47ip8"]
 size = Vector2(128, 128)
@@ -12,24 +12,24 @@ size = Vector2(128, 128)
 radius = 64.03124
 
 [node name="Area2D" type="Area2D" unique_id=1279050439 groups=["Enemy"]]
-script = ExtResource("1_j5k0o")
+script = ExtResource("1_jdssq")
 maxHealth = 20.0
 invincibilityTimer = 1.0
 metadata/ObjectName = "Test Enemy"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982985537]
-modulate = Color(0.90762115, 0.325889, 0.402459, 1)
-texture = ExtResource("2_k2r0x")
+modulate = Color(0.3911175, 0.8235209, 0.3999228, 1)
+texture = ExtResource("2_jh1yy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=462504614]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_47ip8")
 
 [node name="Behaviour" type="Node2D" parent="." unique_id=1219813555]
-script = ExtResource("3_e27fr")
-attackDamage = 40.0
-baseAttackCooldown = 5.0
-baseAttackPrepare = 1.5
+script = ExtResource("3_of7c4")
+attackDamage = 20.0
+baseAttackCooldown = 4.0
+baseAttackPrepare = 1.2
 
 [node name="Health Outline" type="Line2D" parent="." unique_id=1514667052]
 position = Vector2(0, -89)
@@ -60,7 +60,7 @@ default_color = Color(0.8745098, 0.21960784, 0.30980393, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="SoftCollider" parent="." unique_id=805338177 instance=ExtResource("4_eu4ig")]
+[node name="SoftCollider" parent="." unique_id=805338177 instance=ExtResource("4_5n868")]
 
 [node name="CollisionShape2D" parent="SoftCollider" index="0" unique_id=752860889]
 shape = SubResource("CircleShape2D_cfg61")

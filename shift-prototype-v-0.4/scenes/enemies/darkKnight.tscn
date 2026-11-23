@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://ojt2n04um7xq"]
+[gd_scene format=3 uid="uid://bak16hvv6csr1"]
 
-[ext_resource type="Script" uid="uid://c3i1857j6v0fy" path="res://scripts/enemyCode/enemy.gd" id="1_l1kpu"]
-[ext_resource type="Texture2D" uid="uid://dx2fcvyaaxdnu" path="res://assets/icon.svg" id="2_6iyke"]
-[ext_resource type="Script" uid="uid://cyh0ddvxralm7" path="res://scripts/enemyCode/spellcasterBehaviour.gd" id="3_l1kpu"]
-[ext_resource type="PackedScene" uid="uid://bidyqby88gewh" path="res://scenes/Soft Collider.tscn" id="4_fenet"]
+[ext_resource type="Script" uid="uid://c3i1857j6v0fy" path="res://scripts/enemyCode/enemy.gd" id="1_1ldaa"]
+[ext_resource type="Texture2D" uid="uid://dx2fcvyaaxdnu" path="res://assets/icon.svg" id="2_hy101"]
+[ext_resource type="Script" uid="uid://bcrmgx6f0b2kh" path="res://scripts/enemyCode/attackerBehaviour.gd" id="3_v52g3"]
+[ext_resource type="PackedScene" uid="uid://bidyqby88gewh" path="res://scenes/Soft Collider.tscn" id="4_8ewvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47ip8"]
 size = Vector2(128, 128)
@@ -12,24 +12,25 @@ size = Vector2(128, 128)
 radius = 64.03124
 
 [node name="Area2D" type="Area2D" unique_id=1279050439 groups=["Enemy"]]
-script = ExtResource("1_l1kpu")
-maxHealth = 30.0
+script = ExtResource("1_1ldaa")
+maxHealth = 20.0
+type = 1
 invincibilityTimer = 1.0
 metadata/ObjectName = "Test Enemy"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982985537]
 modulate = Color(0.90762115, 0.325889, 0.402459, 1)
-texture = ExtResource("2_6iyke")
+texture = ExtResource("2_hy101")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=462504614]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_47ip8")
 
 [node name="Behaviour" type="Node2D" parent="." unique_id=1219813555]
-script = ExtResource("3_l1kpu")
+script = ExtResource("3_v52g3")
 attackDamage = 40.0
-timeToAttack = 1.5
 baseAttackCooldown = 5.0
+baseAttackPrepare = 1.5
 
 [node name="Health Outline" type="Line2D" parent="." unique_id=1514667052]
 position = Vector2(0, -89)
@@ -60,7 +61,7 @@ default_color = Color(0.8745098, 0.21960784, 0.30980393, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="SoftCollider" parent="." unique_id=805338177 instance=ExtResource("4_fenet")]
+[node name="SoftCollider" parent="." unique_id=805338177 instance=ExtResource("4_8ewvt")]
 
 [node name="CollisionShape2D" parent="SoftCollider" index="0" unique_id=752860889]
 shape = SubResource("CircleShape2D_cfg61")
