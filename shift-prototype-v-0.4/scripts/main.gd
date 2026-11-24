@@ -8,6 +8,7 @@ var valid=true
 @onready var currRoom:Object
 @onready var room:=preload("res://scenes/Room.tscn")
 @onready var Player=$Player
+@onready var camera = $Camera2D
 
 func _ready() -> void:
 	make_floor()

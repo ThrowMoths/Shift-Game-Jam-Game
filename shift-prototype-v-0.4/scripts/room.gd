@@ -19,11 +19,13 @@ var roomEntered=false
 @onready var vampire := preload("res://scenes/enemies/vampire.tscn")
 @onready var wizardApprentice := preload("res://scenes/enemies/wizardApprentice.tscn")
 
+@onready var shadowCreature := preload("res://scenes/minibosses/shadowCreature.tscn")
+
 var roomEnemies:=[]
 var currEnemies:=[]
 var enemiesLeft:=0
 var normalRooms:=[
-	[{ "Type": "Dark Knight", "Position": Vector2(-479.0, -32.0) },{ "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test", "Position": Vector2(-139.0, 92.0) }, { "Type": "Test", "Position": Vector2(112.0, -78.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }] ]
+	[{ "Type": "Shadow Creature", "Position": Vector2(-479.0, -32.0) },{ "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test", "Position": Vector2(-139.0, 92.0) }, { "Type": "Test", "Position": Vector2(112.0, -78.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }] ]
 	#,[{ "Type": "Knight Attacker", "Position": Vector2(-115.0, 78.0) }, { "Type": "Knight Attacker", "Position": Vector2(100.0, 90.0) }, { "Type": "Nun Attacker", "Position": Vector2(915.0, -414.0) }, { "Type": "Witch Attacker", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, -87.0) }]
 	#,[{ "Type": "Test Enemy", "Position": Vector2(-154.0, -439.0) }, { "Type": "Test Enemy", "Position": Vector2(362.0, 345.0) }, { "Type": "Test Enemy", "Position": Vector2(-479.0, -32.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
 	#,[{ "Type": "Test Enemy", "Position": Vector2(-886.0, 420.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, 420.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, -414.0) }, { "Type": "Test Enemy", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
@@ -75,6 +77,8 @@ func generate_room(possibleRooms:Array):
 				roomEnemies.append({"Enemy":vampire,"Position":object["Position"]})
 			"Wizard Apprentice":
 				roomEnemies.append({"Enemy":wizardApprentice,"Position":object["Position"]})
+			"Shadow Creature":
+				roomEnemies.append({"Enemy":shadowCreature,"Position":object["Position"]})
 				
 		if newObject:
 			add_child(newObject)

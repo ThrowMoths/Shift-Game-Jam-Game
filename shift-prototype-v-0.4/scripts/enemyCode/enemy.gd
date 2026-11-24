@@ -11,7 +11,6 @@ var health: float
 @export var contactDamage: float = 5.0
 
 # Don't worry much about the softcollider I used a tutorial for it, all it does is make sure enemies don't overlap
-# TODO: Fix this?
 @onready var softCollider := $SoftCollider
 
 # Invincibility flag so enemies don't immediately chase the enemy
@@ -57,7 +56,6 @@ func _physics_process(delta: float) -> void:
 	modulate = lerp(modulate,Color(1,1,1), delta * 2)
 	
 	# Like i said don't worry about this, just don't touch it probably
-	# TODO: Fix?
 	if softCollider.is_colliding():
 		softCollider.get_push_vector()
 		#print(softCollider.get_push_vector())
