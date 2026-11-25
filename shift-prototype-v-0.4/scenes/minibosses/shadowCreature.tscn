@@ -71,6 +71,7 @@ offset_left = -63.076927
 offset_top = 24.615387
 offset_right = -20.0
 offset_bottom = 62.615387
+editable = false
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

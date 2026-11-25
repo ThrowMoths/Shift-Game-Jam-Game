@@ -34,6 +34,8 @@ var softCollVelocity:Vector2=Vector2.ZERO
 # Recieved knockback multiplier
 @export var knockbackMulti: float = 1.0
 
+var roomPos: Vector2
+
 # Makes sure death calls arent done twice for an enemy
 var deathEmitted: bool = false
 
@@ -76,7 +78,8 @@ func _physics_process(delta: float) -> void:
 			contact(body)
 	
 	# Combines velocity vectors linearly
-	velocity = knockbackVelocity + moveVelocity + softCollVelocity
+	# velocity = knockbackVelocity + moveVelocity + softCollVelocity
+	velocity = moveVelocity + softCollVelocity
 	# Knockback slowly returns to zero
 	knockbackVelocity = knockbackVelocity.move_toward(Vector2(0,0), 3500*delta)
 	

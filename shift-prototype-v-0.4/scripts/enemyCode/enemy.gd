@@ -33,6 +33,8 @@ var softCollVelocity:Vector2=Vector2.ZERO
 # Makes sure death calls arent done twice for an enemy
 var deathEmitted: bool = false
 
+var roomPos: Vector2
+
 func _ready() -> void:
 	health = maxHealth
 	

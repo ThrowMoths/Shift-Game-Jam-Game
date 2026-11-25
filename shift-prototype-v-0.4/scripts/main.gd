@@ -51,8 +51,8 @@ func make_floor():
 			for ii in range(7):
 				if grid[i][ii]!="Empty":
 					var newRoom:=room.instantiate()
-					add_child(newRoom)
 					newRoom.position=Vector2((ii-3)*1152*2,(i-3)*648*2)
+					add_child(newRoom)
 					newRoom.coords=Vector2i(ii,i)
 					newRoom.type=grid[i][ii]
 					if grid[i][ii]=="Start":

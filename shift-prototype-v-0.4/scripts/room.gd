@@ -20,12 +20,13 @@ var roomEntered=false
 @onready var wizardApprentice := preload("res://scenes/enemies/wizardApprentice.tscn")
 
 @onready var shadowCreature := preload("res://scenes/minibosses/shadowCreature.tscn")
+@onready var bladeMaster := preload("res://scenes/minibosses/bladeMaster.tscn")
 
 var roomEnemies:=[]
 var currEnemies:=[]
 var enemiesLeft:=0
 var normalRooms:=[
-	[{ "Type": "Shadow Creature", "Position": Vector2(-479.0, -32.0) },{ "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test", "Position": Vector2(-139.0, 92.0) }, { "Type": "Test", "Position": Vector2(112.0, -78.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }] ]
+	[{ "Type": "Blade Master", "Position": Vector2(-479.0, -32.0) },{ "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test", "Position": Vector2(-139.0, 92.0) }, { "Type": "Test", "Position": Vector2(112.0, -78.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }] ]
 	#,[{ "Type": "Knight Attacker", "Position": Vector2(-115.0, 78.0) }, { "Type": "Knight Attacker", "Position": Vector2(100.0, 90.0) }, { "Type": "Nun Attacker", "Position": Vector2(915.0, -414.0) }, { "Type": "Witch Attacker", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, -87.0) }]
 	#,[{ "Type": "Test Enemy", "Position": Vector2(-154.0, -439.0) }, { "Type": "Test Enemy", "Position": Vector2(362.0, 345.0) }, { "Type": "Test Enemy", "Position": Vector2(-479.0, -32.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
 	#,[{ "Type": "Test Enemy", "Position": Vector2(-886.0, 420.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, 420.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, -414.0) }, { "Type": "Test Enemy", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
@@ -48,6 +49,7 @@ func _ready() -> void:
 		roomEntered=true
 	if type=="Blank":
 		generate_room(normalRooms)
+		
 func generate_room(possibleRooms:Array):
 	var room = possibleRooms.pick_random()
 	for object in room:
@@ -79,10 +81,14 @@ func generate_room(possibleRooms:Array):
 				roomEnemies.append({"Enemy":wizardApprentice,"Position":object["Position"]})
 			"Shadow Creature":
 				roomEnemies.append({"Enemy":shadowCreature,"Position":object["Position"]})
+			"Blade Master":
+				roomEnemies.append({"Enemy":bladeMaster,"Position":object["Position"]})
 				
 		if newObject:
 			add_child(newObject)
 			newObject.position=object["Position"]
+			if newObject.is_in_group("Enemy"):
+				newObject.roomPos = position
 	
 
 func toggle_doors(mode):
@@ -116,11 +122,12 @@ func toggle_doors(mode):
 			$"Part Down/Door3/CollisionShape2D".set_deferred("disabled",false)
 			$"Part Down/Door3".visible=true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		if roomEntered:
-			closed=!closed
-			toggle_doors(closed)
+#func _process(delta: float) -> void:
+	# Are you supposed to be able to to this? I don't think you are
+	#if Input.is_action_just_pressed("ui_accept"):
+		#if roomEntered:
+			#closed=!closed
+			#toggle_doors(closed)
 
 func generate_doors():
 	var grid:Array=get_tree().current_scene.grid

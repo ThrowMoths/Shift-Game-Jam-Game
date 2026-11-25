@@ -8,7 +8,6 @@ var newTargetCooldown: float
 var targetPosition: Vector2
 var rng: RandomNumberGenerator
 var rngAngle: float
-var wallCooldown: float = 0
 
 @export var attackDamage: float
 @export var attackSpeed: float
@@ -38,19 +37,32 @@ func _ready() -> void:
 func getTargetPosition() -> void:
 	rngAngle = rng.randf_range(0, 2*PI)
 	targetPosition = (player.position + Vector2(throwerRange, 0).rotated(rngAngle)).round()
+	if !checkInBounds(targetPosition): getTargetPosition()
+	
+func checkInBounds(point: Vector2) -> bool:
+	var spaceState := get_world_2d().direct_space_state
+	var query := PhysicsPointQueryParameters2D.new()
+	
+	query.position = point
+	query.collide_with_bodies = true
+	query.collide_with_areas = true
+	
+	var collisionObjects := spaceState.intersect_point(query)
+	
+	for obj in collisionObjects:
+		if obj.collider.is_in_group("Wall"):
+			return false
+	
+	return true
 
 # Throwers try and stay at a set range from you and throw attacks intermittently
 func _process(delta: float) -> void:
-	
 	get_parent().moveVelocity = Vector2.ZERO
 	
 	newTargetCooldown -= delta
 	if newTargetCooldown <= 0:
 		getTargetPosition()
 		newTargetCooldown = baseNewTargetCooldown
-		
-	if wallCooldown > 0:
-		wallCooldown -= delta
 	
 	if !attackOffCooldown:
 		attackCooldown -= delta
@@ -69,13 +81,6 @@ func _process(delta: float) -> void:
 	
 	if !inAttack and get_parent().position != targetPosition:
 		get_parent().moveVelocity = Vector2(1000,0).rotated(self.get_angle_to(targetPosition))
-		
-		if wallCooldown <= 0:
-			for body: Node2D in get_parent().get_overlapping_bodies():
-				if body.is_in_group("Wall"):
-					getTargetPosition()
-					newTargetCooldown = baseNewTargetCooldown
-					wallCooldown = 0.1
 		
 		if get_parent().position.distance_to(targetPosition) < 10:
 			get_parent().moveVelocity = Vector2.ZERO
