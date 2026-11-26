@@ -14,7 +14,7 @@ radius = 64.03124
 [node name="Area2D" type="Area2D" unique_id=1279050439 groups=["Enemy"]]
 scale = Vector2(1.3, 1.3)
 script = ExtResource("1_tyvll")
-maxHealth = 20.0
+maxHealth = 100.0
 invincibilityTimer = 1.0
 metadata/ObjectName = "Test Enemy"
 
@@ -29,10 +29,10 @@ shape = SubResource("RectangleShape2D_47ip8")
 [node name="Behaviour" type="Node2D" parent="." unique_id=1219813555]
 script = ExtResource("3_tyvll")
 attackDamage = 40.0
-baseAttackCooldown = 5.0
-baseAttackPrepare = 0.75
+baseAttackCooldown = 2.5
+baseAttackPrepare = 1.0
 baseShiftCooldown = 10.0
-attackSpeed = 1000.0
+attackSpeed = 1250.0
 
 [node name="Health Outline" type="Line2D" parent="." unique_id=1514667052]
 position = Vector2(0, -89)

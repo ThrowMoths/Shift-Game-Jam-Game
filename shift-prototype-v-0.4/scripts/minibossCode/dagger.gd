@@ -22,12 +22,12 @@ func _process(delta: float) -> void:
 	for body: Node2D in get_overlapping_bodies():
 		if body.is_in_group("Player"):
 			contact(body)
-		#if body.is_in_group("Wall") and !deleted:
-			#call_deferred("queue_free")
+		if body.is_in_group("Wall") and !deleted:
+			call_deferred("queue_free")
 			
 func surround(delta: float) -> void:
 	if (position.distance_to(targetPos)) >= 20:
-		position += Vector2(2000, 0).rotated(self.get_angle_to(targetPos) - rotation) * delta
+		position += Vector2(4000, 0).rotated(self.get_angle_to(targetPos) + rotation) * delta
 
 func contact(body: Node2D) -> void:
 	if active:

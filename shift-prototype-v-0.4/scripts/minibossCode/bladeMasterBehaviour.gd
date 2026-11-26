@@ -23,6 +23,9 @@ var rng: RandomNumberGenerator
 var attackRNG: int
 var standardMovement: bool = true
 
+var theta: float
+var thetaIncrement: float = (5 * PI) / 4
+
 @export var attackSpeed: float
 
 @onready var meleeAttack := preload("res://scenes/minibosses/MinibossMeleeAttack.tscn")
@@ -55,9 +58,18 @@ func checkInBounds(point: Vector2) -> bool:
 
 # Blade Master tries to stay the same distance to the player
 func _process(delta: float) -> void:
-	if !inAttack:
-		var newPos = player.position + Vector2(600,0).rotated(player.get_angle_to(get_parent().position))
+	if !inAttack and standardMovement:
+		var newPos = player.position + Vector2(500,0).rotated(player.get_angle_to(get_parent().position))
 		if checkInBounds(newPos): get_parent().position = newPos
+		
+	if !standardMovement:
+		theta = circleAngle(get_parent().player.position, 500, get_parent().position)
+		if !checkInBounds(get_parent().position): thetaIncrement *= -1
+		var newPos: Vector2
+		
+		newPos = circlePos(get_parent().player.position, 500, theta + thetaIncrement * delta)
+		get_parent().position = newPos
+		
 		
 	shiftCooldown -= delta
 	if shiftCooldown <= 0:
@@ -72,7 +84,6 @@ func _process(delta: float) -> void:
 	if attackOffCooldown and !inAttack:
 		get_parent().modulate = Color(0, 0, 0)
 		attackRNG = rng.randi_range(0, 3)
-		attackRNG = 3
 		inAttack = true
 		get_parent().text.set_text(str(attackRNG))
 	
@@ -110,7 +121,32 @@ func greatStrike() -> void:
 
 # Erratic movement then attacks at a random interval
 func dancingStrike() -> void:
+	get_parent().modulate = Color(0, 0, 0)	
+	standardMovement = false
 	reset()
+	
+	await get_tree().create_timer(rng.randf_range(1, 1.8)).timeout
+	
+	get_parent().modulate = Color(0, 0, 0)	
+	standardMovement = true
+	inAttack = true
+	await get_tree().create_timer(0.7).timeout
+	
+	var newAttack := meleeAttack.instantiate()
+	newAttack.rotation = self.get_angle_to(player.position)
+	newAttack.damage = attackDamage
+	get_tree().current_scene.add_child(newAttack)
+	newAttack.position = get_parent().position
+	newAttack.scale = Vector2(1.25, 1.25)
+	
+	reset()
+	
+	
+func circlePos(centre: Vector2, radius: float, theta: float) -> Vector2:
+	return Vector2(centre.x + radius * cos(theta), centre.y + radius * sin(theta))
+	
+func circleAngle(centre: Vector2, radius: float, pos: Vector2) -> float:
+	return atan2(pos.y - centre.y, pos.x - centre.x)
 	
 # Throws daggers
 func daggerThrow() -> void:
@@ -129,7 +165,7 @@ func daggerThrow() -> void:
 # Four daggers around the player
 func daggerCircle() -> void:
 	var positions: Array = [Vector2(-300, 0), Vector2(0, -300), Vector2(300, 0), Vector2(0, 300)]
-	var angles: Array = [0, PI / 2, PI, (3 * PI) / 2]
+	var angles: Array = [0, PI / 2, PI, -PI / 2]
 	var newAttacks: Array = []
 	
 	reset()
@@ -141,18 +177,19 @@ func daggerCircle() -> void:
 		newAttacks[i].damage = attackDamage
 		get_tree().current_scene.add_child(newAttacks[i])
 		newAttacks[i].position = get_parent().position
-		newAttacks[i].scale *= 0.85
-		#newAttacks[i].angle = angles[i]
-		#newAttacks[i].rotation = angles[i]
+		newAttacks[i].scale *= 0.8
+		newAttacks[i].rotation = angles[i]
+		newAttacks[i].angle = angles[i]
 		newAttacks[i].surrounding = true
 		newAttacks[i].targetPos = player.position + positions[i]
-		print(newAttacks[i].targetPos)
 	
-	#await get_tree().create_timer(1.5).timeout
-	#
-	#for i in range(4):
-		#newAttacks[i].surrounding = false
-		#newAttacks[i].move = true
+	await get_tree().create_timer(0.75).timeout
+	
+	for i in range(4):
+		if newAttacks[i]:
+			newAttacks[i].surrounding = false
+			newAttacks[i].move = true
+			newAttacks[i].active = true
 
 func reset() -> void:
 	inAttack = false
