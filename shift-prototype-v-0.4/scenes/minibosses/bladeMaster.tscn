@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnpsi1rqxvxwk"]
 
 [ext_resource type="Script" uid="uid://b4nwy6icormdv" path="res://scripts/minibossCode/miniboss.gd" id="1_tyvll"]
-[ext_resource type="Texture2D" uid="uid://dx2fcvyaaxdnu" path="res://assets/icon.svg" id="2_61t3n"]
+[ext_resource type="Texture2D" uid="uid://cq5kbwnl0nj4y" path="res://assets/shadowUNHOLY.png" id="2_tyvll"]
 [ext_resource type="Script" uid="uid://dxo7l2ifdpf1o" path="res://scripts/minibossCode/bladeMasterBehaviour.gd" id="3_tyvll"]
 [ext_resource type="PackedScene" uid="uid://bidyqby88gewh" path="res://scenes/Soft Collider.tscn" id="4_lfuaw"]
 
@@ -20,7 +20,7 @@ metadata/ObjectName = "Test Enemy"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982985537]
 modulate = Color(0.90762115, 0.325889, 0.402459, 1)
-texture = ExtResource("2_61t3n")
+texture = ExtResource("2_tyvll")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=462504614]
 position = Vector2(0, -1)

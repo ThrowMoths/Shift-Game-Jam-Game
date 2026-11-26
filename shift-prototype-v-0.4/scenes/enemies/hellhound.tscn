@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxlp5vr76xebh"]
 
 [ext_resource type="Script" uid="uid://c3i1857j6v0fy" path="res://scripts/enemyCode/enemy.gd" id="1_jdssq"]
-[ext_resource type="Texture2D" uid="uid://dx2fcvyaaxdnu" path="res://assets/icon.svg" id="2_jh1yy"]
+[ext_resource type="Texture2D" uid="uid://yj5ulvxdyary" path="res://assets/HellhoundBase.png" id="2_rweo6"]
 [ext_resource type="Script" uid="uid://bcrmgx6f0b2kh" path="res://scripts/enemyCode/attackerBehaviour.gd" id="3_of7c4"]
 [ext_resource type="PackedScene" uid="uid://bidyqby88gewh" path="res://scenes/Soft Collider.tscn" id="4_5n868"]
 
@@ -18,8 +18,8 @@ invincibilityTimer = 1.0
 metadata/ObjectName = "Test Enemy"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982985537]
-modulate = Color(0.3911175, 0.8235209, 0.3999228, 1)
-texture = ExtResource("2_jh1yy")
+scale = Vector2(2, 2)
+texture = ExtResource("2_rweo6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=462504614]
 position = Vector2(0, -1)

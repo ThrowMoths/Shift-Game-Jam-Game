@@ -21,6 +21,9 @@ var attackRNG: int
 @onready var meleeAttack := preload("res://scenes/minibosses/MinibossMeleeAttack.tscn")
 @onready var spiritAttack := preload("res://scenes/enemies/EnemySpellcasterAttack.tscn")
 
+@onready var UNHOLYsprite := preload("res://assets/shadowUNHOLY.png")
+@onready var SPIRITsprite := preload("res://assets/shadowSPIRIT.png")
+
 func _ready() -> void:
 	await get_tree().process_frame
 	# Gets the player pointer from the parent Area2D
@@ -28,7 +31,7 @@ func _ready() -> void:
 	camera = get_tree().current_scene.camera
 	
 	get_parent().type = EnemyTypeWrapper.Type.UNHOLY
-	get_parent().sprite.modulate = Color(0,1,0)
+	get_parent().sprite.texture = UNHOLYsprite
 	
 	attackPrepare = baseAttackPrepare
 	shiftCooldown = baseShiftCooldown
@@ -63,10 +66,10 @@ func shift() -> void:
 	var type: EnemyTypeWrapper.Type = get_parent().type
 	if type == EnemyTypeWrapper.Type.UNHOLY:
 		get_parent().type = EnemyTypeWrapper.Type.SPIRIT
-		get_parent().sprite.modulate = Color(0,0,1)
+		get_parent().sprite.texture = SPIRITsprite
 	elif type == EnemyTypeWrapper.Type.SPIRIT:
 		get_parent().type = EnemyTypeWrapper.Type.UNHOLY
-		get_parent().sprite.modulate = Color(0,1,0)
+		get_parent().sprite.texture = UNHOLYsprite
 
 func halfMoonSlash() -> void:
 	get_parent().text.set_text("0")
