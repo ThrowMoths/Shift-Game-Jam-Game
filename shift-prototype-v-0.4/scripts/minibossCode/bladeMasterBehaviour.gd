@@ -21,6 +21,7 @@ var camera: Object
 
 var rng: RandomNumberGenerator
 var attackRNG: int
+
 var standardMovement: bool = true
 
 var theta: float
@@ -58,9 +59,12 @@ func checkInBounds(point: Vector2) -> bool:
 
 # Blade Master tries to stay the same distance to the player
 func _process(delta: float) -> void:
+	get_parent().moveVelocity = Vector2.ZERO
+	
 	if !inAttack and standardMovement:
 		var newPos = player.position + Vector2(500,0).rotated(player.get_angle_to(get_parent().position))
-		if checkInBounds(newPos): get_parent().position = newPos
+		if get_parent().position.distance_to(newPos) >= 30 and checkInBounds(newPos): 
+			get_parent().moveVelocity = Vector2(1000,0).rotated(self.get_angle_to(newPos))
 		
 	if !standardMovement:
 		theta = circleAngle(get_parent().player.position, 500, get_parent().position)

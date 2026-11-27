@@ -21,12 +21,13 @@ var roomEntered=false
 
 @onready var shadowCreature := preload("res://scenes/minibosses/shadowCreature.tscn")
 @onready var bladeMaster := preload("res://scenes/minibosses/bladeMaster.tscn")
+@onready var mothman := preload("res://scenes/minibosses/mothman.tscn")
 
 var roomEnemies:=[]
 var currEnemies:=[]
 var enemiesLeft:=0
 var normalRooms:=[
-	[{ "Type": "Hellhound", "Position": Vector2(-479.0, -32.0) }] ]
+	[{ "Type": "Mothman", "Position": Vector2(-479.0, -32.0) }] ]
 	#,[{ "Type": "Knight Attacker", "Position": Vector2(-115.0, 78.0) }, { "Type": "Knight Attacker", "Position": Vector2(100.0, 90.0) }, { "Type": "Nun Attacker", "Position": Vector2(915.0, -414.0) }, { "Type": "Witch Attacker", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, -87.0) }]
 	#,[{ "Type": "Test Enemy", "Position": Vector2(-154.0, -439.0) }, { "Type": "Test Enemy", "Position": Vector2(362.0, 345.0) }, { "Type": "Test Enemy", "Position": Vector2(-479.0, -32.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
 	#,[{ "Type": "Test Enemy", "Position": Vector2(-886.0, 420.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, 420.0) }, { "Type": "Test Enemy", "Position": Vector2(915.0, -414.0) }, { "Type": "Test Enemy", "Position": Vector2(-886.0, -414.0) }, { "Type": "Test2", "Position": Vector2(-134.0, -84.0) }, { "Type": "Test2", "Position": Vector2(112.0, 98.0) }]
@@ -83,6 +84,8 @@ func generate_room(possibleRooms:Array):
 				roomEnemies.append({"Enemy":shadowCreature,"Position":object["Position"]})
 			"Blade Master":
 				roomEnemies.append({"Enemy":bladeMaster,"Position":object["Position"]})
+			"Mothman":
+				roomEnemies.append({"Enemy":mothman,"Position":object["Position"]})
 				
 		if newObject:
 			add_child(newObject)
