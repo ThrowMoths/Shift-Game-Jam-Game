@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://tvbgj7kcp7x4"]
+
+[ext_resource type="Texture2D" uid="uid://dx2fcvyaaxdnu" path="res://assets/icon.svg" id="1_cyeik"]
+[ext_resource type="Script" uid="uid://ob5skuq574b6" path="res://scripts/minibossCode/mothSpawner.gd" id="1_d3qbr"]
+[ext_resource type="Texture2D" uid="uid://b2mxtgpc530bm" path="res://assets/moth.png" id="2_d3qbr"]
+
+[node name="MothSpawner" type="Node2D" unique_id=793607460]
+script = ExtResource("1_d3qbr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1612209894]
+rotation = 0.7853982
+texture = ExtResource("1_cyeik")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1208733649]
+modulate = Color(1, 0, 0, 1)
+rotation = 0.7853982
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("2_d3qbr")

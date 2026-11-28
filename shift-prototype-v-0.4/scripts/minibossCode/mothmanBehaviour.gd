@@ -26,6 +26,7 @@ var t: float = 0
 @export var attackSpeed: float
 
 @onready var moth := preload("res://scenes/minibosses/moth.tscn")
+@onready var mothSpawner := preload("res://scenes/minibosses/mothSpawner.tscn")
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -81,7 +82,6 @@ func _process(delta: float) -> void:
 	if attackOffCooldown and !inAttack:
 		get_parent().modulate = Color(0, 0, 0)
 		attackRNG = rng.randi_range(0, 3)
-		#attackRNG = 1
 		inAttack = true
 		get_parent().text.set_text(str(attackRNG))
 	
@@ -93,7 +93,7 @@ func _process(delta: float) -> void:
 				0: mothSwarm()
 				1: bouncingMoth()
 				2: mothSummon()
-				3: mothSpawner()
+				3: summonMothSpawner()
 
 func shift() -> void:
 	var type: EnemyTypeWrapper.Type = get_parent().type
@@ -159,13 +159,54 @@ func bouncingMoth() -> void:
 # Summons moths at corners of map
 func mothSummon() -> void:
 	get_parent().modulate = Color(0, 0, 0)	
+	var fullSize = camera.get_viewport_rect().size / camera.zoom
+	var halfSize = fullSize * 0.5
+	var centrePos = camera.get_screen_center_position()
+	var offsets: Array = [Vector2(-950, -400), Vector2(950, -400), Vector2(-950, 400), Vector2(950, 400)]
 	
+	var newAttacks: Array = []
+	for i in range(4):
+		newAttacks.append(moth.instantiate())
+		newAttacks[i].speed = attackSpeed / 1.5
+		newAttacks[i].damage = attackDamage
+		get_tree().current_scene.add_child(newAttacks[i])
+		newAttacks[i].player = player
+		newAttacks[i].position = centrePos + offsets[i]
+		newAttacks[i].angle = newAttacks[i].get_angle_to(player.position)
+		newAttacks[i].rotation = newAttacks[i].angle
+		newAttacks[i].move = true
+		newAttacks[i].scale *= 0.8
+	
+	reset()
+	
+	await get_tree().create_timer(0.6).timeout
+	
+	for i in range(4):
+		if newAttacks[i]:
+			newAttacks[i].move = false
+			newAttacks[i].toPlayer()
+			
+	await get_tree().create_timer(0.2).timeout
+	
+	for i in range(4):
+		if newAttacks[i]:
+			newAttacks[i].move = true
+			
 	reset()
 
 # Summons moth spawner
-func mothSpawner() -> void:
+func summonMothSpawner() -> void:
 	get_parent().modulate = Color(0, 0, 0)	
-
+	var newAttack = mothSpawner.instantiate()
+	newAttack.player = player
+	newAttack.parentEnemy = self
+	newAttack.mothCount = 3
+	newAttack.mothCooldown = 1.0
+	get_tree().current_scene.add_child(newAttack)
+	
+	var centrePos = camera.get_screen_center_position()
+	newAttack.position = centrePos + Vector2(rng.randf_range(-900, 900), rng.randf_range(-400, 400))
+	
 	reset()
 
 func reset() -> void:
